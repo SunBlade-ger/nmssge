@@ -82,7 +82,7 @@ def decompress(data: bytes) -> bytes:
 
 def compress(data: bytes) -> bytes:
 	"""Compresses the given save bytes."""
-	chunk_size = 0x100000
+	chunk_size = 0x80000
 	out = bytearray()
 	for din in iter(data[i:i + chunk_size] for i in range(0, len(data), chunk_size)):
 		block = lz4.block.compress(din, store_size=False)
